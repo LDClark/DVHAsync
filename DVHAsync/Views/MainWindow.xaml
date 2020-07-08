@@ -129,7 +129,6 @@
                         Header="Achieved"
                         Binding="{Binding Result, StringFormat=\{0:f2\}}"
                         >
-                        
                         <DataGridTextColumn.ElementStyle>
                             <Style TargetType="TextBlock">
                                 <Setter Property="HorizontalAlignment" Value="Right" />

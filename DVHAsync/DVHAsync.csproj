@@ -109,6 +109,7 @@
     <Compile Include="DialogService\SimpleProgress.cs" />
     <Compile Include="Esapi\DoseMetricCalculator.cs" />
     <Compile Include="Esapi\EsapiService.cs" />
+    <Compile Include="Esapi\Extensionscs.cs" />
     <Compile Include="Esapi\IEsapiService.cs" />
     <Compile Include="Esapi\Objectives.cs" />
     <Compile Include="Esapi\Plan.cs" />
@@ -126,7 +127,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MetricResult.cs" />
     <Compile Include="ViewModels\PlanningItemViewModel.cs" />
-    <Compile Include="ViewModels\PQMSummaryViewModel.cs" />
+    <Compile Include="ViewModels\PQMViewModel.cs" />
     <Compile Include="ViewModels\StructureSetViewModel.cs" />
     <Compile Include="ViewModels\StructureViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">

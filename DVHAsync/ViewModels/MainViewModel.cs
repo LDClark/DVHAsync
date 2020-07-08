@@ -54,16 +54,10 @@ namespace DVHAsync
             var courseId = SelectedPlan?.CourseId;
             var planId = SelectedPlan?.PlanId;
             
-            //var ss = SelectedPlan?.StructureSet;
-            //var planningItem = SelectedPlan?.PlanSetup;
-            //PlanningItemViewModel planningItemVM = new PlanningItemViewModel(planningItem);
-            
-
             if (courseId == null || planId == null)
                 return;
 
             var structureIds = await _esapiService.GetStructureIdsAsync(courseId, planId);
-            //var planSetups = await _esapiService.GetPlanSetupsAsync();
 
             DirectoryInfo constraintDir = new DirectoryInfo(Path.Combine(AssemblyHelper.GetAssemblyDirectory(), "ConstraintTemplates"));
             string firstFileName = constraintDir.GetFiles().FirstOrDefault().ToString();
@@ -73,11 +67,7 @@ namespace DVHAsync
             if (!System.IO.File.Exists(firstConstraintFilePath))
             {
                 System.Windows.MessageBox.Show(string.Format("The template file '{0}' chosen does not exist.", firstConstraintFilePath));
-                //return;
             }
-            //ConstraintViewModel constraints = new ConstraintViewModel(constraintPath);
-
-            //PQMSummaryViewModel[] objectives = Objectives.GetObjectives(constraintPath);
             var pqms = Objectives.GetObjectives(firstConstraintFilePath);
 
             _dialogService.ShowProgressDialog("Calculating dose metrics", structureIds.Length,
@@ -94,8 +84,6 @@ namespace DVHAsync
                         string variation = "";
                         try
                         {
-                            
-                            //var pqm = new PQMSummaryViewModel();
                             foreach (var pqm in pqms)
                             {
                                 if (pqm.TemplateId == structureId)
@@ -118,11 +106,8 @@ namespace DVHAsync
                         }
                         catch
                         {
-                            //result = double.NaN;
                             result = "";
                         }
-
-
                         progress.Increment();
                     }
                 });
